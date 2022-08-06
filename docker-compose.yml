@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+
+# Serviço do Apache + PHP
+  oco-web:
+  # Imagem "php:8.1-apache-bullseye" modificada pelos Dockerfile da pasta ./src_www/
+    build: 
+      context: ./src_www/
+    container_name: 'ocomon-www'
+    restart: 'unless-stopped'
+    ports:
+      - "80:80"
+      - "443:443"
+    links: 
+      - oco-db
+    volumes: 
+      - ./volumes/www:/var/www/html
+    environment:
+      TZ: "America/Sao_Paulo"
+
+# Serviço do banco de dados MySQL
+  oco-db:
+    image: mysql:8.0-debian
+    container_name: 'ocomon-db'
+    restart: 'unless-stopped'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./volumes/mysql/data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "sua-sEnh@_r0ot_in1cial-aqu!"
+      TZ: "America/Sao_Paulo"
