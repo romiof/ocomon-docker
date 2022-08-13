@@ -18,6 +18,10 @@ Requisitos atendidos, vamos colocar a mão na massa.
 
     `mkdir ocomon && cd ocomon`
 
+- Pode fazer um clone:
+
+    `git clone https://github.com/romiof/ocomon-docker`
+
  - Dentro dessa pasta, devemos ter todos arquivos e pastas que estão nesse repositório.
     - [./docker-compose.yml](./docker-compose.yml) - contém os comandos para iniciar o ambiente dos containers, para o banco de dados e para o servidor web.
     - [./volumes](./volumes) - contém os diretórios que serão persistidos pelos containers, pois originalmente, o container destrói todos os dados que foram gerados dentro deles, a menos, que seja usado um *volume* para manter os dados após o container ter sido removido.
