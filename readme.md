@@ -42,9 +42,9 @@ Requisitos atendidos, vamos colocar a mão na massa.
 
 ## Coonfigurações para o primeiro uso do Ocomon
 - Configure uma senha inicial para o root do MySQL, editando a variável de ambiente *MYSQL_ROOT_PASSWORD* na linha 32 do arquivo [./docker-compose.yml](./docker-compose.yml)
-    - Após iniciar o container do MySQL todos os bancos de dados, incluíndo os bancos de dados do sistema, serão acessíveis pelo volume mapeado para o container.
+    - Após iniciar o container do MySQL, todos os bancos de dados, incluíndo os bancos de dados do sistema, serão acessíveis pelo volume mapeado para o container.
     - Assim, após termos um banco de dados do sistema criado, não é possível trocar a senha pelo arquivo docker-compose.
-    - Isso se deve ao fato que a imagem de container do MySQL está programada para não modificar os bancos de dados de sistema nos volumes mapeados.
+    - Isso se deve ao fato que a imagem de container do MySQL está programada para não modificar os bancos de dados de sistema nos volumes mapeados. Ela apenas faz a criação dos bancos quando encontra a pasta vazia, mas não modifica o que já existir.
 - Após o MySQL subir, [troque a senha do root](https://stackoverflow.com/a/62357102).
 - Opcionalmente, libere acesso remoto do usuário root do MySQL. [Usei as etapas 2 e 3 desses passos com sucesso](https://stackoverflow.com/a/65636249).
 - Com a nova senha de root, você pode fazer toda a gestão do banco pelo [DBeaver](https://dbeaver.io/download/), o qual eu acho muito mais fácil do que fazer pela shell do MySQL, de dentro do container.
@@ -52,7 +52,7 @@ Requisitos atendidos, vamos colocar a mão na massa.
 - E agora siga as instruções do arquivo de instalação do Ocomon conforme sua versão anterior.
     - Se estiver fazendo uma instalação nova para atualizar um ambiente antigo, faça um DUMP e após um RESTORE do MySQL usando o DBeaver ou o shell do MySQL, após siga as instruções conforme a versão que era usada do Ocomon.
 
-## Dica Extra
+## Dicas Extra
 - Toda edição dos arquivos e gestão do Linux e do Docker, pode ser feito com o [Visual Studio Code](https://code.visualstudio.com/)
 - Para isso, instale as seguintes extensões no seu VS Code:
     - [Remote SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
